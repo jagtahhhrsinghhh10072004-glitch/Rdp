@@ -1,4 +1,4 @@
-name: RDP
+name: Jagtar
 
 
 on:
@@ -54,7 +54,7 @@ jobs:
           Restart-Service -Name TermService -Force
 
 
-      - name: Create RDP User with Secure Password
+      - name: Create Jagtar User with Secure Password
 
         run: |
 
@@ -96,11 +96,11 @@ jobs:
 
          
 
-          echo "RDP_CREDS=User: RDP | Password: $password" >> $env:GITHUB_ENV
+          echo "RDP_CREDS=User: Jagtar | Password: $password" >> $env:GITHUB_ENV
 
          
 
-          if (-not (Get-LocalUser -Name "RDP")) {
+          if (-not (Get-LocalUser -Name "Jagtar")) {
 
               Write-Error "User creation failed"
 
@@ -166,7 +166,7 @@ jobs:
 
      
 
-      - name: Verify RDP Accessibility
+      - name: Verify Jagtar Accessibility
 
         run: |
 
@@ -197,7 +197,7 @@ jobs:
 
           Write-Host "Address: $env:TAILSCALE_IP"
 
-          Write-Host "Username: RDP"
+          Write-Host "Username: Jagtar"
 
           Write-Host "Password: $(echo $env:RDP_CREDS)"
 
